@@ -1,0 +1,26 @@
+flowchart TB
+  subgraph G[Global content plane]
+    TC[Template Catalog + outbox]
+    SS[Summary Service]
+    ST[(Summary Store)]
+    TH[(Template head + version graph)]
+  end
+  subgraph R[Regional engagement plane]
+    EI[(Engagement Index)]
+    DS[(Decision Store)]
+    Q[[SQS + DLQ]]
+    FW[Fan-out Worker]
+    API[Pending API]
+  end
+  TC -->|events| SS
+  TC --> TH
+  SS --> ST
+  TC -->|publish event| Q
+  Q --> FW
+  FW -->|rate limited, 1 min| EM[Engagement Management]
+  EM --> DS
+  DS --> EI
+  FW --> EI
+  EI --> API
+  ST --> API
+  TH --> API
