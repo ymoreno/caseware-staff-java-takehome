@@ -4,6 +4,8 @@ Processes a `TemplatePublished` event, pages the engagement catalog for the affe
 
 This is the slow path. It is not the source of the seconds-level pending indicator described in the design document.
 
+Java 21 and Maven.
+
 ## Assumptions
 
 - The catalog is paginated by cursor and does not load engagements.

@@ -12,7 +12,7 @@ Submission for the Java Staff Software Developer IV take-home.
 
 ## Part 2
 
-Java 17 and Maven. The worker processes a `TemplatePublished` event, pages the engagement catalog for the affected template and region, and marks affected engagements as pending through a downstream that takes about one minute per call and has limited capacity.
+Java 21 and Maven. The worker processes a `TemplatePublished` event, pages the engagement catalog for the affected template and region, and marks affected engagements as pending through a downstream that takes about one minute per call and has limited capacity.
 
 ```bash
 cd part2
